@@ -10,8 +10,15 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+let wordbank = ["AROUND", "LETTER", "PUBLIC", "REMAKE", "CANDLE", "GUITAR", "PRINCE", "STOMPS", "ECLAIR", "TRICKY"]
+let word = ""
 
-const pigLatin = (word) => {
+const generateWord = () => {
+  let x = Math.floor(Math.random() * 10)
+  word = wordbank[x]
+}
+
+const hangman = (letter) => {
 
   // Your code here
 
@@ -21,8 +28,8 @@ const pigLatin = (word) => {
 // to run the function use the command: node main.js
 // to close it ctrl + C
 const getPrompt = () => {
-  rl.question('word ', (answer) => {
-    console.log( pigLatin(answer) );
+  rl.question('letter ', (answer) => {
+    console.log( hangman(answer) );
     getPrompt();
   });
 }
