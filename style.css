@@ -1,0 +1,7 @@
+#container {
+    display: grid;
+}
+#right {
+    background-image: url('./sources/gallows.jpg');
+    
+}
