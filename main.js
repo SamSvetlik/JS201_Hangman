@@ -22,6 +22,17 @@ const hangman = (letter) => {
 
   // Your code here
 
+  // Code for filling in blanks in middle div
+  // let blanks = "_ _ _ _ _ _"
+  // document.getElementById("middle").innerHTML = blanks
+  // let splitBlanks = blanks.split(" ")
+  // for (let i = 0; i < splitBlanks.length; i++){
+    // if (word.split("")[i] === guess {
+    // splitBlanks[i] = guess
+    //  }
+  // }
+  // blanks = splitBlanks.join(" ")
+  // document.getElementById("middle").innerHTML = blanks
 }
 
 // the first function called in the program to get an input from the user
