@@ -12,27 +12,33 @@ const rl = readline.createInterface({
 
 let wordbank = ["AROUND", "LETTER", "PUBLIC", "REMAKE", "CANDLE", "GUITAR", "PRINCE", "STOMPS", "ECLAIR", "TRICKY"]
 let word = ""
+let correctGuesses = []
+let wrongGuesses = 0;
 
 const generateWord = () => {
   let x = Math.floor(Math.random() * 10)
   word = wordbank[x]
+  for (let i = 0; i < word.length; i++) {
+    correctGuesses.push("-")
+  }
+
+  document.getElementById("middle").innerHtml = correctGuesses.join(" ");
 }
 
 const hangman = (letter) => {
 
-  // Your code here
+  if(!word.includes(letter)){
+    wrongGuesses++;
+    return;
+  }
+  for (let i = 0; i < word.length; i++) {
+    if (letter.equal(word[i])){
+      correctGuesses[i] = letter;
+    }
+  }
+  
+  document.getElementById("middle").innerHtml = correctGuesses.join(" ");
 
-  // Code for filling in blanks in middle div
-  // let blanks = "_ _ _ _ _ _"
-  // document.getElementById("middle").innerHTML = blanks
-  // let splitBlanks = blanks.split(" ")
-  // for (let i = 0; i < splitBlanks.length; i++){
-    // if (word.split("")[i] === guess {
-    // splitBlanks[i] = guess
-    //  }
-  // }
-  // blanks = splitBlanks.join(" ")
-  // document.getElementById("middle").innerHTML = blanks
 }
 
 // the first function called in the program to get an input from the user
