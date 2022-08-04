@@ -26,6 +26,7 @@ const generateWord = () => {
 }
 
 const hangman = (letter) => {
+
   if(!word.includes(letter)){
     wrongGuesses++;
     return;
@@ -37,6 +38,7 @@ const hangman = (letter) => {
   }
   
   document.getElementById("middle").innerHtml = correctGuesses.join(" ");
+
 }
 
 // the first function called in the program to get an input from the user

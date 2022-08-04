@@ -3,17 +3,30 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" href="style.css">
     <script src="main.js"></script>
   </head>
   <body>
-    <h1>Hello World!</h1>
+    <h1>HANGMAN</h1>
     <hr/>
-    <div id="display-element"></div>
-    <form>
-      <input id="user-input" type="text">
-      <!-- How do you get this input sent to the pigLatin() function? -->
-      <button onclick="pigLatin()">Translate</button>
-    </form>  
+    <h2>Guess the word one letter at a time. You have 6 guesses.</h2>
+    <div id="container">
+    <div id="left">
+        <form>
+          <input id="user-input" type="text" maxlength="1" placeholder="Guess a letter...">
+          <button onclick="hangman()">GUESS</button>
+      </form>  
+      </div>
+      <div id="middle">
+        <!-- This is where the blanks will go -->
+      </div>
+      <div id="right">
+        <div id="one"><pre>    ____<br> |</pre></div>
+        <div id="two">___<br>|</div>
+        <div id="three">|<br>|<br>|<br>____|____<br></div>
+        <div id="four">O<br>/|\<br>/ \</div>
+      </div>
+    </div>
     <hr/>
   </body>
 </html>
