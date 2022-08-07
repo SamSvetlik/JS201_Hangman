@@ -1,5 +1,5 @@
 'use strict';
-
+/*
 // brings in the assert module for unit testing
 const assert = require('assert');
 // brings in the readline module to access the command line
@@ -9,38 +9,48 @@ const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
-
+*/
 let wordbank = ["AROUND", "LETTER", "PUBLIC", "REMAKE", "CANDLE", "GUITAR", "PRINCE", "STOMPS", "ECLAIR", "TRICKY"]
-let word = ""
-let correctGuesses = []
+let word = "";
+let wordArray = [];
+let correctGuesses = [];
 let wrongGuesses = 0;
 
 const generateWord = () => {
+  wrongGuesses = 0;
   let x = Math.floor(Math.random() * 10)
   word = wordbank[x]
-  for (let i = 0; i < word.length; i++) {
+  console.log(word)
+  wordArray = word.split('')
+  for (let i = 0; i < wordArray.length; i++) {
     correctGuesses.push("-")
   }
-
-  document.getElementById("middle").innerHtml = correctGuesses.join(" ");
+  document.getElementById("guesses").innerHTML = correctGuesses.join();;
 }
 
 const hangman = (letter) => {
-
-  if(!word.includes(letter)){
+  letter = letter.toUpperCase();
+  if(!wordArray.includes(letter)) {
     wrongGuesses++;
+    if(wrongGuesses >= 6){
+      document.getElementById("middle").innerHTML = "YOU LOSE"
+    }
+    document.getElementById(wrongGuesses.toString()).toggleAttribute("hidden");
     return;
   }
-  for (let i = 0; i < word.length; i++) {
-    if (letter.equal(word[i])){
+  for (let i = 0; i < wordArray.length; i++) {
+    if (letter === wordArray[i]) {
       correctGuesses[i] = letter;
     }
   }
   
-  document.getElementById("middle").innerHtml = correctGuesses.join(" ");
+  document.getElementById("guesses").innerHTML = correctGuesses.join();
+  if(!correctGuesses.includes("-")){
+    document.getElementById("middle").innerHTML = "YOU WIN"
+  }
 
 }
-
+/*
 // the first function called in the program to get an input from the user
 // to run the function use the command: node main.js
 // to close it ctrl + C
@@ -79,7 +89,7 @@ if (typeof describe === 'function') {
   getPrompt();
 
 }
-
+*/
 
 
 
