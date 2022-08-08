@@ -60,6 +60,10 @@ hr {
     width: fit-content;
     text-align: center;
 }
+span {
+    width: fit-content;
+    text-align: center;
+}
 /* delete past here before turning in */
 #left, #middle, #right {
     margin: 20px;
