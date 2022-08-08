@@ -1,0 +1,67 @@
+* {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    background-color: black;
+    color: #20C20E;
+}
+div, pre {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+  }
+input, button{
+    border: 2px solid #20C20E;
+}
+hr {
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
+    border-color: #20C20E;
+}
+::placeholder {
+    color: #20c20e4f;
+}
+#container {
+    display: flex;
+    justify-content: center;
+}
+#right {
+    display: grid;
+    grid-template-areas: 
+    "one two"
+    "three four";
+    width: fit-content;
+    text-align: center;
+}
+#one {
+    grid-area: one;
+    width: fit-content;
+    text-align: center;
+}
+#two {
+    grid-area: two;
+    width: fit-content;
+    text-align: center;
+}
+#three {
+    grid-area: three;
+    width: fit-content;
+    text-align: center;
+}
+#four {
+    grid-area: four;
+    width: fit-content;
+    text-align: center;
+}
+/* delete past here before turning in */
+#left, #middle, #right {
+    margin: 20px;
+    border: solid 1px #20C20E;
+}

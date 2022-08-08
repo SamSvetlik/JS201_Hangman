@@ -3,24 +3,32 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-  </head>
-  <body>
 
-
-    var hangManArt =" +---+ <br/>
-    |   |<br/>
-    O   |<br/>
-    /|\\  |<br/>
-    / \\  |<br/>
-    |<br/>
-    ========= "
-    
-    <pre>
-    </pre>    
-    
-    <div id="player">
-</div>
-    
+    <link rel="stylesheet" href="style.css">
     <script src="main.js"></script>
+  </head>
+  <body onload = "generateWord()">
+    <h1>HANGMAN</h1>
+    <hr/>
+    <h2>Guess the word one letter at a time. You have 6 guesses.</h2>
+    <div id="container">
+    <div id="left">
+        <form onsubmit="noRefresh(event)">
+          <input id="user-input" type="text" maxlength="1" placeholder="Guess a letter..." autocomplete="off">
+          <button id="button" onclick="hangman(document.getElementById('user-input').value)" type="button">GUESS</button>
+      </form>  
+      <div id="guesses">
+      </div>
+      </div>
+      <div id="middle">
+      </div>
+      <div id="right">
+        <div id="one"><pre>    ____<br> |</pre></div>
+        <div id="two">___<br>|</div>
+        <div id="three">|<br>|<br>|<br>____|____<br></div>
+        <div id="four"><span id="1" hidden> O </span><br><span id="2" hidden>/</span><span id="3" hidden>|</span><span id="4" hidden>\</span><br><span id="5" hidden>/</span> <span id="6" hidden>\</span></div>
+      </div>
+    </div>
+    <hr/>
   </body>
 </html>

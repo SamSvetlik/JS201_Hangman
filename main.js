@@ -25,7 +25,7 @@ const generateWord = () => {
   for (let i = 0; i < wordArray.length; i++) {
     correctGuesses.push("-")
   }
-  document.getElementById("guesses").innerHTML = correctGuesses.join();;
+  document.getElementById("guesses").innerHTML = correctGuesses.join("");;
 }
 
 const hangman = (letter) => {
@@ -44,13 +44,20 @@ const hangman = (letter) => {
     }
   }
   
-  document.getElementById("guesses").innerHTML = correctGuesses.join();
+
+  document.getElementById("guesses").innerHTML = correctGuesses.join("");
+
   if(!correctGuesses.includes("-")){
     document.getElementById("middle").innerHTML = "YOU WIN"
   }
 
 }
-
+const noRefresh = (e) => {
+  e.preventDefault();
+  hangman(document.getElementById('user-input').value)
+  document.getElementById('user-input').value = ""
+}
+/*
 // the first function called in the program to get an input from the user
 // to run the function use the command: node main.js
 // to close it ctrl + C
@@ -104,6 +111,7 @@ describe("win the game", () => {
 } else {
   getPrompt();
 }
+
 
 // **********
 //   HINTS
