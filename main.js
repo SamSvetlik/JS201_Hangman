@@ -1,5 +1,5 @@
-'use strict';
 /*
+'use strict';
 // brings in the assert module for unit testing
 const assert = require('assert');
 // brings in the readline module to access the command line
@@ -15,6 +15,7 @@ let word = "";
 let wordArray = [];
 let correctGuesses = [];
 let wrongGuesses = 0;
+let allGuesses = []
 
 const generateWord = () => {
   wrongGuesses = 0;
@@ -30,10 +31,14 @@ const generateWord = () => {
 
 const hangman = (letter) => {
   letter = letter.toUpperCase();
+  allGuesses.push(letter)
+  document.getElementById("guessedLetters").innerText = allGuesses
   if(!wordArray.includes(letter)) {
     wrongGuesses++;
     if(wrongGuesses >= 6){
-      document.getElementById("middle").innerHTML = "YOU LOSE"
+      document.getElementById("middle").innerHTML = "SORRY! YOU LOSE!"
+      correctGuesses = wordArray
+      document.getElementById("guesses").innerHTML = correctGuesses.join("")
     }
     document.getElementById(wrongGuesses.toString()).toggleAttribute("hidden");
     return;
@@ -48,7 +53,7 @@ const hangman = (letter) => {
   document.getElementById("guesses").innerHTML = correctGuesses.join("");
 
   if(!correctGuesses.includes("-")){
-    document.getElementById("middle").innerHTML = "YOU WIN"
+    document.getElementById("middle").innerHTML = "CONGRATULATIONS!"
   }
 
 }
@@ -112,12 +117,4 @@ describe("win the game", () => {
   getPrompt();
 }
 
-
-// **********
-//   HINTS
-// **********
-
-// break your code into pieces and focus on one piece at a time...
-// 1. if word begins with a vowel send to one function: adds "yay"
-// 2. if word begins with a consonant send to another function: splices off beginning, returns word with new ending.
-// 3. if multiple words, create array of words, loop over them, sending them to different functions and creating a new array with the new words.
+*/
