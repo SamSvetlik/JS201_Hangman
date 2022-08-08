@@ -44,7 +44,9 @@ const hangman = (letter) => {
     }
   }
   
+
   document.getElementById("guesses").innerHTML = correctGuesses.join("");
+
   if(!correctGuesses.includes("-")){
     document.getElementById("middle").innerHTML = "YOU WIN"
   }
@@ -65,39 +67,50 @@ const getPrompt = () => {
     getPrompt();
   });
 }
-
 // Unit Tests
 // to use them run the command: npm test main.js
 // to close them ctrl + C
-if (typeof describe === 'function') {
 
-  describe('#pigLatin()', () => {
-    it('should translate a simple word', () => {
-      assert.equal(pigLatin('car'), 'arcay');
-      assert.equal(pigLatin('dog'), 'ogday');
+
+if (typeof describe === "function") {
+  describe("#hangman()", () => {
+    it("take in letter, if letter is in word then reveal letter", () => {
+      word = ["H", "E", "L", "L", "O"];
+      hangman("H");
+      assert.equal(word[0], correctWord[0]);
     });
-    it('should translate a complex word', () => {
-      assert.equal(pigLatin('create'), 'eatecray');
-      assert.equal(pigLatin('valley'), 'alleyvay');
-    });
-    it('should attach "yay" if word begins with vowel', () => {
-      assert.equal(pigLatin('egg'), 'eggyay');
-      assert.equal(pigLatin('emission'), 'emissionyay');
-    });
-    it('should lowercase and trim word before translation', () => {
-      assert.equal(pigLatin('HeLlO '), 'ellohay');
-      assert.equal(pigLatin(' RoCkEt'), 'ocketray');
+    
+    
+    it("takes in a letter, if letter is wrong, does not add a word", () => {
+      word = ["H", "E", "L", "L", "O"];
+      hangman("X");
+      assert.equal(correctWord.join(""), "H_____");
     });
   });
+  
+  
+  describe("Lose the game", () => {
+    it("Should determine a loser when the player runs out of turns", () => {
+      counter = 1
+      assert.equal(hangman('X'), "You Lose!");
+      
+    });
+  });
+    
+    
+    
+   
+describe("win the game", () => {
+    it('should determain a winner if player guesses letters correctly', () => {
+       word = correctWord
+       assert.equal(checkForWin(), true )
+       assert.equal(checkForWin(), "you win") 
+       
+     });
+    });
 } else {
-
   getPrompt();
-
 }
-*/
-
-
-
 
 
 // **********
